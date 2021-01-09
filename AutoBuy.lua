@@ -1,6 +1,6 @@
 script_name("AutoBuy")
 script_author("HarlyCloud")
-script_version("1.0.0")
+script_version("1.1.0")
 script_description("9.1.2021")
 
 require "lib.moonloader"
@@ -17,7 +17,7 @@ local path = getWorkingDirectory() .. "\\HarlyCloud Script\\AutoBuy"
 if not doesDirectoryExist(path) then
 	createDirectory(path)
 end
-local tag =  "•  {fcc603}[{fcc603}Auto Buy]{ffffff}: "
+local tag =  "вЂў  {fcc603}[{fcc603}Auto Buy]{ffffff}: "
 local imgui = require "imgui"
 local encoding = require 'encoding'
 local inicfg = require 'inicfg'
@@ -136,8 +136,8 @@ local fa_glyph_ranges = imgui.ImGlyphRanges({ fa.min_range, fa.max_range })
 function imgui.BeforeDrawFrame()
     if fa_font == nil then
         if not doesFileExist('moonloader/HarlyCloud Script/fa-solid-900.ttf') then 
-            sampAddChatMessage(tag..'Отсутсвует файл шрифта '..lc..'fa-solid-900.ttf'..wc..' в папке '..lc..'moonloader/HarlyCloud Script/', mcx)
-            sampAddChatMessage(tag..'Запуск без него не возможен. Переустановите скрипт или обратитесь к разработчику. Скрипт отключён..', mcx)
+            sampAddChatMessage(tag..'ГЋГІГ±ГіГІГ±ГўГіГҐГІ ГґГ Г©Г« ГёГ°ГЁГґГІГ  '..lc..'fa-solid-900.ttf'..wc..' Гў ГЇГ ГЇГЄГҐ '..lc..'moonloader/HarlyCloud Script/', mcx)
+            sampAddChatMessage(tag..'Г‡Г ГЇГіГ±ГЄ ГЎГҐГ§ Г­ГҐГЈГ® Г­ГҐ ГўГ®Г§Г¬Г®Г¦ГҐГ­. ГЏГҐГ°ГҐГіГ±ГІГ Г­Г®ГўГЁГІГҐ Г±ГЄГ°ГЁГЇГІ ГЁГ«ГЁ Г®ГЎГ°Г ГІГЁГІГҐГ±Гј ГЄ Г°Г Г§Г°Г ГЎГ®ГІГ·ГЁГЄГі. Г‘ГЄГ°ГЁГЇГІ Г®ГІГЄГ«ГѕГ·ВёГ­..', mcx)
             thisScript():unload()
             return 
         end
@@ -273,14 +273,14 @@ function main()
 	end
     if server then
         autoupdatet("https://raw.githubusercontent.com/HarlyCloud/AutoBuy/main/version.json", '[ ]: ', " ")
-		SCM("Успешно запустился! Добро пожаловать на Arizona Role Play")
-        SCM("Активация меню скрипта /autobuy")
+		SCM("Г“Г±ГЇГҐГёГ­Г® Г§Г ГЇГіГ±ГІГЁГ«Г±Гї! Г„Г®ГЎГ°Г® ГЇГ®Г¦Г Г«Г®ГўГ ГІГј Г­Г  Arizona Role Play")
+        SCM("ГЂГЄГІГЁГўГ Г¶ГЁГї Г¬ГҐГ­Гѕ Г±ГЄГ°ГЁГЇГІГ  /autobuy")
         sampRegisterChatCommand("autobuy",function() 
         main_window_state.v = not main_window_state.v
         end)
 	else
-        SCM("На данном сервера скрипт не работает")
-        SCM("Скрипт доступен только на серверах Arizona Role Play")
+        SCM("ГЌГ  Г¤Г Г­Г­Г®Г¬ Г±ГҐГ°ГўГҐГ°Г  Г±ГЄГ°ГЁГЇГІ Г­ГҐ Г°Г ГЎГ®ГІГ ГҐГІ")
+        SCM("Г‘ГЄГ°ГЁГЇГІ Г¤Г®Г±ГІГіГЇГҐГ­ ГІГ®Г«ГјГЄГ® Г­Г  Г±ГҐГ°ГўГҐГ°Г Гµ Arizona Role Play")
         thisScript():unload()
 	end
     while true do
@@ -289,8 +289,8 @@ function main()
     end
 end
 
-function SCM(arg) -- Сокращение команды sampAddChatMessage
-    sampAddChatMessage(" •  {fcc603}[{fcc603}Auto Buy]{ffffff}: " .. arg,-1)
+function SCM(arg) -- Г‘Г®ГЄГ°Г Г№ГҐГ­ГЁГҐ ГЄГ®Г¬Г Г­Г¤Г» sampAddChatMessage
+    sampAddChatMessage(" вЂў  {fcc603}[{fcc603}Auto Buy]{ffffff}: " .. arg,-1)
 end
 
 function imgui.OnDrawFrame()
@@ -326,13 +326,13 @@ function imgui.OnDrawFrame()
 
         imgui.Begin('##ChangeLogWindow', changeLogWindow, imgui.WindowFlags.NoCollapse + imgui.WindowFlags.NoResize + imgui.WindowFlags.NoScrollbar + imgui.WindowFlags.NoTitleBar + imgui.WindowFlags.ShowBorders)
             imgui.PushFont(infoFs)
-            imgui.CenterTextColoredRGB(lc..'Список изменений')
+            imgui.CenterTextColoredRGB(lc..'Г‘ГЇГЁГ±Г®ГЄ ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГ©')
             imgui.PopFont()
             if daysAfterUpdate() <= 3 then 
                 imgui.SameLine()
                 imgui.MiniLable('New!', imgui.ImVec4(1, 0.3, 0.3, 1), 5, 6)
             end
-            imgui.CenterTextColoredRGB('{606060}Версия: {868686}'..thisScript().version..'{606060} | Последнее обновление вышло {868686}'..updateDate())
+            imgui.CenterTextColoredRGB('{606060}Г‚ГҐГ°Г±ГЁГї: {868686}'..thisScript().version..'{606060} | ГЏГ®Г±Г«ГҐГ¤Г­ГҐГҐ Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ ГўГ»ГёГ«Г® {868686}'..updateDate())
             imgui.PushStyleColor(imgui.Col.ChildWindowBg, imgui.ImVec4(0.07, 0.07, 0.07, 1.00))
             imgui.BeginChild('##ChangeLog', imgui.ImVec2(-1, imgui.GetWindowHeight() - 150), true)
                 for count = 0, #changelog do
@@ -347,17 +347,17 @@ function imgui.OnDrawFrame()
                     imgui.PopFont()
                     imgui.SameLine()
                     local isBeta = isVersionBeta(ver)
-                    imgui.MiniLable(isBeta and 'Beta' or u8('От '..date), isBeta and imgui.ImVec4(1, 1, 0, 1) or imgui.ImVec4(0, 1, 0, 1), 10, 10)
+                    imgui.MiniLable(isBeta and 'Beta' or u8('ГЋГІ '..date), isBeta and imgui.ImVec4(1, 1, 0, 1) or imgui.ImVec4(0, 1, 0, 1), 10, 10)
 
                     imgui.PushTextWrapPos(imgui.GetWindowWidth() - 30)
                     for k, v in ipairs(info) do
                         imgui.TextColoredRGB('{606060}'..k..') {SSSSSS}'..v) 
                     end
-                    if #info <= 0 then imgui.TextColoredRGB('{505050}(Данная версия не имеет изменений)') end
+                    if #info <= 0 then imgui.TextColoredRGB('{505050}(Г„Г Г­Г­Г Гї ГўГҐГ°Г±ГЁГї Г­ГҐ ГЁГ¬ГҐГҐГІ ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГ©)') end
 
                     if #patches > 0 then
-                        imgui.TextColoredRGB(sc..'>> Список патчей ('..#patches..')')
-                        imgui.Hint(u8('Кликните, что бы '..(changelog[count]['patches']['show'] and 'свернуть' or 'развернуть')))
+                        imgui.TextColoredRGB(sc..'>> Г‘ГЇГЁГ±Г®ГЄ ГЇГ ГІГ·ГҐГ© ('..#patches..')')
+                        imgui.Hint(u8('ГЉГ«ГЁГЄГ­ГЁГІГҐ, Г·ГІГ® ГЎГ» '..(changelog[count]['patches']['show'] and 'Г±ГўГҐГ°Г­ГіГІГј' or 'Г°Г Г§ГўГҐГ°Г­ГіГІГј')))
                         if imgui.IsItemClicked() then 
                             changelog[count]['patches']['show'] = not changelog[count]['patches']['show']
                         end
@@ -380,7 +380,7 @@ function imgui.OnDrawFrame()
             
             imgui.PushStyleColor(imgui.Col.Border, imgui.ImVec4(0, 1, 0, 1))
             imgui.PushStyleColor(imgui.Col.Button, imgui.ImVec4(imgui.GetStyle().Colors[imgui.Col.WindowBg]))
-            if imgui.Button(u8'Закрыть окно', imgui.ImVec2(300, 30)) then 
+            if imgui.Button(u8'Г‡Г ГЄГ°Г»ГІГј Г®ГЄГ­Г®', imgui.ImVec2(300, 30)) then 
                 mainIni.main.clogshow = false
                 saveIniFile()
                 changeLogWindow.v = false 
@@ -394,18 +394,18 @@ function vkladkaone()
     imgui.BeginChild('##vkladkaone', imgui.ImVec2(980, 300), true)
     imgui.CreatePaddingY(10)
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Авто аренда лавки", autoarenda) then
+    if imgui.Checkbox(u8"ГЂГўГІГ® Г Г°ГҐГ­Г¤Г  Г«Г ГўГЄГЁ", autoarenda) then
         mainIni.main.autoarenda = autoarenda.v
         saveIniFile()
     end
-    imgui.Hint(u8"Когда вы подходите к лавки и нажимаете ALT в появивщемся диалоге автоматически подтверждается аренда.")
+    imgui.Hint(u8"ГЉГ®ГЈГ¤Г  ГўГ» ГЇГ®Г¤ГµГ®Г¤ГЁГІГҐ ГЄ Г«Г ГўГЄГЁ ГЁ Г­Г Г¦ГЁГ¬Г ГҐГІГҐ ALT Гў ГЇГ®ГїГўГЁГўГ№ГҐГ¬Г±Гї Г¤ГЁГ Г«Г®ГЈГҐ Г ГўГІГ®Г¬Г ГІГЁГ·ГҐГ±ГЄГЁ ГЇГ®Г¤ГІГўГҐГ°Г¦Г¤Г ГҐГІГ±Гї Г Г°ГҐГ­Г¤Г .")
     imgui.EndChild()
         imgui.CenterTextColoredRGB('{404040}v'..thisScript().version.. " stable")
         imgui.SetCursorPosX((imgui.GetWindowWidth() - 300) / 2)
-        if imgui.ButtonHex(u8'Информация об обновлениях', 0x209020, imgui.ImVec2(300, 20)) then 
+        if imgui.ButtonHex(u8'Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г®ГЎ Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГїГµ', 0x209020, imgui.ImVec2(300, 20)) then 
             changeLogWindow.v = true
         end
-        imgui.CenterTextColoredRGB('{606060}Ссылки на разработчика:')
+        imgui.CenterTextColoredRGB('{606060}Г‘Г±Г»Г«ГЄГЁ Г­Г  Г°Г Г§Г°Г ГЎГ®ГІГ·ГЁГЄГ :')
         imgui.SetCursorPosX((imgui.GetWindowWidth() - 415) / 2)
         imgui.ButtonVK(devLink['VK'])
         imgui.SameLine()
@@ -421,7 +421,7 @@ function beginchild2()
     imgui.BeginChild('##beginchild2', imgui.ImVec2(480, 340), true)
     imgui.CreatePaddingY(10)
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Камень",kamen) then
+    if imgui.Checkbox(u8"ГЉГ Г¬ГҐГ­Гј",kamen) then
         mainIni.other.kamen = kamen.v
         saveIniFile()
     end
@@ -434,7 +434,7 @@ function beginchild2()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##kamenpr", kamenpr) then
@@ -442,7 +442,7 @@ function beginchild2()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
         imgui.SameLine()
         imgui.PushItemWidth(65)
@@ -451,10 +451,10 @@ function beginchild2()
         saveIniFile()
         end
         imgui.SameLine()
-        imgui.TextDisabled(u8"Цена за шт")
+        imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Металл",metall) then
+    if imgui.Checkbox(u8"ГЊГҐГІГ Г«Г«",metall) then
         mainIni.other.metall = metall.v
         saveIniFile()
     end
@@ -467,7 +467,7 @@ function beginchild2()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##metallpr", metallpr) then
@@ -475,7 +475,7 @@ function beginchild2()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
         imgui.SameLine()
         imgui.PushItemWidth(65)
@@ -484,10 +484,10 @@ function beginchild2()
         saveIniFile()
         end
         imgui.SameLine()
-        imgui.TextDisabled(u8"Цена за шт")
+        imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Бронза",bronz) then
+    if imgui.Checkbox(u8"ГЃГ°Г®Г­Г§Г ",bronz) then
         mainIni.other.bronz = bronz.v
         saveIniFile()
     end
@@ -500,7 +500,7 @@ function beginchild2()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##bronzpr", bronzpr) then
@@ -508,7 +508,7 @@ function beginchild2()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
         imgui.SameLine()
         imgui.PushItemWidth(65)
@@ -517,10 +517,10 @@ function beginchild2()
         saveIniFile()
         end
         imgui.SameLine()
-        imgui.TextDisabled(u8"Цена за шт")
+        imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Серебро",serebro) then
+    if imgui.Checkbox(u8"Г‘ГҐГ°ГҐГЎГ°Г®",serebro) then
         mainIni.other.serebro = serebro.v
         saveIniFile()
     end
@@ -533,7 +533,7 @@ function beginchild2()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##serebropr", serebropr) then
@@ -541,7 +541,7 @@ function beginchild2()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
         imgui.SameLine()
         imgui.PushItemWidth(65)
@@ -550,10 +550,10 @@ function beginchild2()
         saveIniFile()
         end
         imgui.SameLine()
-        imgui.TextDisabled(u8"Цена за шт")
+        imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Золото",gold) then
+    if imgui.Checkbox(u8"Г‡Г®Г«Г®ГІГ®",gold) then
         mainIni.other.gold = gold.v
         saveIniFile()
     end
@@ -566,7 +566,7 @@ function beginchild2()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##goldpr", goldpr) then
@@ -574,7 +574,7 @@ function beginchild2()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
         imgui.SameLine()
         imgui.PushItemWidth(65)
@@ -583,10 +583,10 @@ function beginchild2()
         saveIniFile()
         end
         imgui.SameLine()
-        imgui.TextDisabled(u8"Цена за шт")
+        imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Лён",len) then
+    if imgui.Checkbox(u8"Г‹ВёГ­",len) then
         mainIni.other.len = len.v
         saveIniFile()
     end
@@ -599,7 +599,7 @@ function beginchild2()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##lenpr", lenpr) then
@@ -607,7 +607,7 @@ function beginchild2()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
         imgui.SameLine()
         imgui.PushItemWidth(65)
@@ -616,10 +616,10 @@ function beginchild2()
         saveIniFile()
         end
         imgui.SameLine()
-        imgui.TextDisabled(u8"Цена за шт")
+        imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Хлопок",hlopok) then
+    if imgui.Checkbox(u8"Г•Г«Г®ГЇГ®ГЄ",hlopok) then
         mainIni.other.hlopok = hlopok.v
         saveIniFile()
     end
@@ -632,7 +632,7 @@ function beginchild2()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##hlopokpr", hlopokpr) then
@@ -640,7 +640,7 @@ function beginchild2()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
         imgui.SameLine()
         imgui.PushItemWidth(65)
@@ -649,10 +649,10 @@ function beginchild2()
         saveIniFile()
         end
         imgui.SameLine()
-        imgui.TextDisabled(u8"Цена за шт")
+        imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Краситель",kras) then
+    if imgui.Checkbox(u8"ГЉГ°Г Г±ГЁГІГҐГ«Гј",kras) then
         mainIni.other.kras = kras.v
         saveIniFile()
     end
@@ -665,7 +665,7 @@ function beginchild2()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##kraspr", kraspr) then
@@ -673,7 +673,7 @@ function beginchild2()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
         imgui.SameLine()
         imgui.PushItemWidth(65)
@@ -682,45 +682,45 @@ function beginchild2()
         saveIniFile()
         end
         imgui.SameLine()
-        imgui.TextDisabled(u8"Цена за шт")
+        imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.EndChild()
     local auf = imgui.ImVec2(150,50)
     imgui.CreatePaddingY(2)
     imgui.CreatePaddingX(8)
-    if imgui.RadioButton(u8'Цены', typebuy, 1) then
+    if imgui.RadioButton(u8'Г–ГҐГ­Г»', typebuy, 1) then
         mainIni.main.typebuy = typebuy.v
         saveIniFile()
     end
-    imgui.Hint(u8"Просто выставляете цену за товар")
+    imgui.Hint(u8"ГЏГ°Г®Г±ГІГ® ГўГ»Г±ГІГ ГўГ«ГїГҐГІГҐ Г¶ГҐГ­Гі Г§Г  ГІГ®ГўГ Г°")
     imgui.SameLine()
-    if imgui.RadioButton(u8'Проценты', typebuy, 2) then
+    if imgui.RadioButton(u8'ГЏГ°Г®Г¶ГҐГ­ГІГ»', typebuy, 2) then
         mainIni.main.typebuy = typebuy.v
-        SCM("В разработке, на данный момент работает только с ценами")
+        SCM("Г‚ Г°Г Г§Г°Г ГЎГ®ГІГЄГҐ, Г­Г  Г¤Г Г­Г­Г»Г© Г¬Г®Г¬ГҐГ­ГІ Г°Г ГЎГ®ГІГ ГҐГІ ГІГ®Г«ГјГЄГ® Г± Г¶ГҐГ­Г Г¬ГЁ")
         saveIniFile()
     end
-    imgui.Hint(u8"Выставляйте процент денег которые пойдут на то или иной товар в виде:\n0.1 = 10% | 0.01 = 1% | 1 = 100%")
+    imgui.Hint(u8"Г‚Г»Г±ГІГ ГўГ«ГїГ©ГІГҐ ГЇГ°Г®Г¶ГҐГ­ГІ Г¤ГҐГ­ГҐГЈ ГЄГ®ГІГ®Г°Г»ГҐ ГЇГ®Г©Г¤ГіГІ Г­Г  ГІГ® ГЁГ«ГЁ ГЁГ­Г®Г© ГІГ®ГўГ Г° Гў ГўГЁГ¤ГҐ:\n0.1 = 10% | 0.01 = 1% | 1 = 100%")
     imgui.SameLine()
-    if imgui.Button(u8'Следущая страница '..fa.ICON_FA_ARROW_RIGHT,auf) then
-        SCM("В разработке")
+    if imgui.Button(u8'Г‘Г«ГҐГ¤ГіГ№Г Гї Г±ГІГ°Г Г­ГЁГ¶Г  '..fa.ICON_FA_ARROW_RIGHT,auf) then
+        SCM("Г‚ Г°Г Г§Г°Г ГЎГ®ГІГЄГҐ")
     end
     imgui.SameLine()
-    if imgui.Button(u8('Начать скуп'),auf) then
+    if imgui.Button(u8('ГЌГ Г·Г ГІГј Г±ГЄГіГЇ'),auf) then
         fastskup()
     end
-    imgui.Hint(u8"Откройте начальное меню нажав на ALT")
+    imgui.Hint(u8"ГЋГІГЄГ°Г®Г©ГІГҐ Г­Г Г·Г Г«ГјГ­Г®ГҐ Г¬ГҐГ­Гѕ Г­Г Г¦Г Гў Г­Г  ALT")
     if typebuy.v == 2 then
         local bbb = imgui.ImVec2(480,25)
-        if imgui.Button(u8('Проверить проценты'),bbb) then
+        if imgui.Button(u8('ГЏГ°Г®ГўГҐГ°ГЁГІГј ГЇГ°Г®Г¶ГҐГ­ГІГ»'),bbb) then
             proc = 0
 			superproc()
 			if proc>1.0000000002 then
-				SCM('{FF0000}Внимание{FFFAFA}, проценты привышают 1 на {FF0000}'..proc)
+				SCM('{FF0000}Г‚Г­ГЁГ¬Г Г­ГЁГҐ{FFFAFA}, ГЇГ°Г®Г¶ГҐГ­ГІГ» ГЇГ°ГЁГўГ»ГёГ ГѕГІ 1 Г­Г  {FF0000}'..proc)
 			else
-				SCM('Проценты в норме: {00FF00}'..proc)
+				SCM('ГЏГ°Г®Г¶ГҐГ­ГІГ» Гў Г­Г®Г°Г¬ГҐ: {00FF00}'..proc)
 			end
         end
-        imgui.Hint(u8"Нажав на кнопку все указанные проценты проверятся. \n  ВНИМАНИЕ: НЕ ДОПУСКАЙТЕ ЧТО БЫ ПРОЦЕНТА НЕ БЫЛО! ИНАЧЕ СКРИПТ КРАШНЕТСЯ")
+        imgui.Hint(u8"ГЌГ Г¦Г Гў Г­Г  ГЄГ­Г®ГЇГЄГі ГўГ±ГҐ ГіГЄГ Г§Г Г­Г­Г»ГҐ ГЇГ°Г®Г¶ГҐГ­ГІГ» ГЇГ°Г®ГўГҐГ°ГїГІГ±Гї. \n  Г‚ГЌГ€ГЊГЂГЌГ€Г…: ГЌГ… Г„ГЋГЏГ“Г‘ГЉГЂГ‰Г’Г… Г—Г’ГЋ ГЃГ› ГЏГђГЋГ–Г…ГЌГ’ГЂ ГЌГ… ГЃГ›Г‹ГЋ! Г€ГЌГЂГ—Г… Г‘ГЉГђГ€ГЏГ’ ГЉГђГЂГГЌГ…Г’Г‘Гџ")
     end
     imgui.EndGroup()
 end
@@ -729,7 +729,7 @@ function beginchild1()
     imgui.BeginChild('##beginchild1', imgui.ImVec2(480, 430), true)
     imgui.CreatePaddingY(10)
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Бронзовая рулетка",bronzrulet) then
+    if imgui.Checkbox(u8"ГЃГ°Г®Г­Г§Г®ГўГ Гї Г°ГіГ«ГҐГІГЄГ ",bronzrulet) then
         mainIni.ruletki.bronzrulet = bronzrulet.v
         saveIniFile()
     end
@@ -742,7 +742,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##bronzruletpr", bronzruletpr) then
@@ -750,7 +750,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
             imgui.SameLine()
             imgui.PushItemWidth(65)
@@ -759,10 +759,10 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Цена за шт")
+            imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Серебряная рулетка",serrulet) then
+    if imgui.Checkbox(u8"Г‘ГҐГ°ГҐГЎГ°ГїГ­Г Гї Г°ГіГ«ГҐГІГЄГ ",serrulet) then
         mainIni.ruletki.serrulet = serrulet.v
         saveIniFile()
     end
@@ -775,7 +775,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##serruletpr", serruletpr) then
@@ -783,7 +783,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
             imgui.SameLine()
             imgui.PushItemWidth(65)
@@ -792,10 +792,10 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Цена за шт")
+            imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Золотая рулетка",goldrulet) then
+    if imgui.Checkbox(u8"Г‡Г®Г«Г®ГІГ Гї Г°ГіГ«ГҐГІГЄГ ",goldrulet) then
         mainIni.ruletki.goldrulet = goldrulet.v
         saveIniFile()
     end
@@ -808,7 +808,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##goldruletpr", goldruletpr) then
@@ -816,7 +816,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
             imgui.SameLine()
             imgui.PushItemWidth(65)
@@ -825,10 +825,10 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Цена за шт")
+            imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Платиновая рулетка",platrulet) then
+    if imgui.Checkbox(u8"ГЏГ«Г ГІГЁГ­Г®ГўГ Гї Г°ГіГ«ГҐГІГЄГ ",platrulet) then
         mainIni.ruletki.platrulet = platrulet.v
         saveIniFile()
     end
@@ -841,7 +841,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##platruletpr", platruletpr) then
@@ -849,7 +849,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
             imgui.SameLine()
             imgui.PushItemWidth(65)
@@ -858,10 +858,10 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Цена за шт")
+            imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Семейные талоны",famtalon) then
+    if imgui.Checkbox(u8"Г‘ГҐГ¬ГҐГ©Г­Г»ГҐ ГІГ Г«Г®Г­Г»",famtalon) then
         mainIni.other.famtalon = famtalon.v
         saveIniFile()
     end
@@ -874,7 +874,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##famtalonpr", famtalonpr) then
@@ -882,7 +882,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
             imgui.SameLine()
             imgui.PushItemWidth(65)
@@ -891,10 +891,10 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Цена за шт")
+            imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Подарок",podarok) then
+    if imgui.Checkbox(u8"ГЏГ®Г¤Г Г°Г®ГЄ",podarok) then
         mainIni.other.podarok = podarok.v
         saveIniFile()
     end
@@ -907,7 +907,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##podarokpr", podarokpr) then
@@ -915,7 +915,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
             imgui.SameLine()
             imgui.PushItemWidth(65)
@@ -924,10 +924,10 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Цена за шт")
+            imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Гражданский талон",grajdantalon) then
+    if imgui.Checkbox(u8"ГѓГ°Г Г¦Г¤Г Г­Г±ГЄГЁГ© ГІГ Г«Г®Г­",grajdantalon) then
         mainIni.other.grajdantalon = grajdantalon.v
         saveIniFile()
     end
@@ -940,7 +940,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##grajdantalonpr", grajdantalonpr) then
@@ -948,7 +948,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
             imgui.SameLine()
             imgui.PushItemWidth(65)
@@ -957,10 +957,10 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Цена за шт")
+            imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Скидочный талон",skidochnik) then
+    if imgui.Checkbox(u8"Г‘ГЄГЁГ¤Г®Г·Г­Г»Г© ГІГ Г«Г®Г­",skidochnik) then
         mainIni.other.skidochnik = skidochnik.v
         saveIniFile()
     end
@@ -973,7 +973,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##skidochnikpr", skidochnikpr) then
@@ -981,7 +981,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
             imgui.SameLine()
             imgui.PushItemWidth(65)
@@ -990,10 +990,10 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Цена за шт")
+            imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Счасливая травка",travka) then
+    if imgui.Checkbox(u8"Г‘Г·Г Г±Г«ГЁГўГ Гї ГІГ°Г ГўГЄГ ",travka) then
         mainIni.other.travka = travka.v
         saveIniFile()
     end
@@ -1006,7 +1006,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##travkapr", travkapr) then
@@ -1014,7 +1014,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
             imgui.SameLine()
             imgui.PushItemWidth(65)
@@ -1023,10 +1023,10 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Цена за шт")
+            imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Точильные камни",tochkam) then
+    if imgui.Checkbox(u8"Г’Г®Г·ГЁГ«ГјГ­Г»ГҐ ГЄГ Г¬Г­ГЁ",tochkam) then
         mainIni.other.tochkam = tochkam.v
         saveIniFile()
     end
@@ -1039,7 +1039,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##tochkampr", tochkampr) then
@@ -1047,7 +1047,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
             imgui.SameLine()
             imgui.PushItemWidth(65)
@@ -1056,10 +1056,10 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Цена за шт")
+            imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Зловещая монета",zlovmoneta) then
+    if imgui.Checkbox(u8"Г‡Г«Г®ГўГҐГ№Г Гї Г¬Г®Г­ГҐГІГ ",zlovmoneta) then
         mainIni.other.zlovmoneta = zlovmoneta.v
         saveIniFile()
     end
@@ -1072,7 +1072,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##zlovmonetapr", zlovmonetapr) then
@@ -1080,7 +1080,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
             imgui.SameLine()
             imgui.PushItemWidth(65)
@@ -1089,10 +1089,10 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Цена за шт")
+            imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Черепа",cherep) then
+    if imgui.Checkbox(u8"Г—ГҐГ°ГҐГЇГ ",cherep) then
         mainIni.other.cherep = cherep.v
         saveIniFile()
     end
@@ -1105,7 +1105,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##chereppr", chereppr) then
@@ -1113,7 +1113,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
             imgui.SameLine()
             imgui.PushItemWidth(65)
@@ -1122,10 +1122,10 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Цена за шт")
+            imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.CreatePaddingX(10)
-    if imgui.Checkbox(u8"Евро",euro) then
+    if imgui.Checkbox(u8"Г…ГўГ°Г®",euro) then
         mainIni.other.euro = euro.v
         saveIniFile()
     end
@@ -1138,7 +1138,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Кол.")
+            imgui.TextDisabled(u8"ГЉГ®Г«.")
         else
             imgui.PushItemWidth(65)
             if imgui.InputText(u8"##europr", europr) then
@@ -1146,7 +1146,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Проц.")
+            imgui.TextDisabled(u8"ГЏГ°Г®Г¶.")
         end
             imgui.SameLine()
             imgui.PushItemWidth(65)
@@ -1155,7 +1155,7 @@ function beginchild1()
             saveIniFile()
             end
             imgui.SameLine()
-            imgui.TextDisabled(u8"Цена за шт")
+            imgui.TextDisabled(u8"Г–ГҐГ­Г  Г§Г  ГёГІ")
     end
     imgui.EndChild()
 end
@@ -1164,17 +1164,17 @@ function main_button()
     imgui.SetCursorPos(imgui.ImVec2(10,10))
 	imgui.BeginGroup()
     local auf = imgui.ImVec2(100,40)
-    if imgui.Button(u8('Главное'),auf) then
+    if imgui.Button(u8('ГѓГ«Г ГўГ­Г®ГҐ'),auf) then
         sbros()
         vkladki[1] = true
     end
-    imgui.Hint(u8"Главная страница",0)
+    imgui.Hint(u8"ГѓГ«Г ГўГ­Г Гї Г±ГІГ°Г Г­ГЁГ¶Г ",0)
 	imgui.SameLine()
-    if imgui.Button(u8('АвтоСкуп'),auf) then
+    if imgui.Button(u8('ГЂГўГІГ®Г‘ГЄГіГЇ'),auf) then
         sbros()
         vkladki[2] = true
     end
-    imgui.Hint(u8"Автоматически выставляет на скуп все товары которые вы выберите.",0)
+    imgui.Hint(u8"ГЂГўГІГ®Г¬Г ГІГЁГ·ГҐГ±ГЄГЁ ГўГ»Г±ГІГ ГўГ«ГїГҐГІ Г­Г  Г±ГЄГіГЇ ГўГ±ГҐ ГІГ®ГўГ Г°Г» ГЄГ®ГІГ®Г°Г»ГҐ ГўГ» ГўГ»ГЎГҐГ°ГЁГІГҐ.",0)
     imgui.EndGroup()
     imgui.Separator()
 end 
@@ -1226,7 +1226,7 @@ function imgui.Hint(text, delay, action)
                 imgui.PushStyleColor(imgui.Col.PopupBg, imgui.ImVec4(0.11, 0.11, 0.11, 1.00))
                     imgui.BeginTooltip()
                     imgui.PushTextWrapPos(450)
-                    imgui.TextColored(imgui.GetStyle().Colors[imgui.Col.ButtonHovered], fa.ICON_FA_INFO_CIRCLE..u8' Подсказка:')
+                    imgui.TextColored(imgui.GetStyle().Colors[imgui.Col.ButtonHovered], fa.ICON_FA_INFO_CIRCLE..u8' ГЏГ®Г¤Г±ГЄГ Г§ГЄГ :')
                     imgui.TextUnformatted(text)
                     if action ~= nil then 
                         imgui.TextColored(imgui.GetStyle().Colors[imgui.Col.TextDisabled], '\n'..fa.ICON_FA_SHARE..' '..action)
@@ -1271,7 +1271,7 @@ function updateDate()
 end
 
 function getStrDate(unixTime)
-    local tMonths = {'января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'}
+    local tMonths = {'ГїГ­ГўГ Г°Гї', 'ГґГҐГўГ°Г Г«Гї', 'Г¬Г Г°ГІГ ', 'Г ГЇГ°ГҐГ«Гї', 'Г¬Г Гї', 'ГЁГѕГ­Гї', 'ГЁГѕГ«Гї', 'Г ГўГЈГіГ±ГІГ ', 'Г±ГҐГ­ГІГїГЎГ°Гї', 'Г®ГЄГІГїГЎГ°Гї', 'Г­Г®ГїГЎГ°Гї', 'Г¤ГҐГЄГ ГЎГ°Гї'}
     local day = tonumber(os.date('%d', unixTime))
     local month = tMonths[tonumber(os.date('%m', unixTime))]
     local year = tonumber(os.date('%Y', unixTime))
@@ -1361,7 +1361,7 @@ function imgui.ButtonDiscord(textbuffer)
     imgui.PushStyleColor(imgui.Col.ButtonActive, imgui.ImVec4(0.41, 0.19, 0.63, 1))
     if imgui.Button('Discord', imgui.ImVec2(100, 30)) then setClipboardText(textbuffer) end
     imgui.PopStyleColor(3)
-    imgui.Hint(textbuffer, 0, u8(getClipboardText() == textbuffer and 'Скопировано!' or 'Кликните что-бы скопировать'))
+    imgui.Hint(textbuffer, 0, u8(getClipboardText() == textbuffer and 'Г‘ГЄГ®ГЇГЁГ°Г®ГўГ Г­Г®!' or 'ГЉГ«ГЁГЄГ­ГЁГІГҐ Г·ГІГ®-ГЎГ» Г±ГЄГ®ГЇГЁГ°Г®ГўГ ГІГј'))
 end
 
 function imgui.MiniLable(text, clr, offsx, offsy)
@@ -1446,9 +1446,9 @@ function imgui.ButtonVK(textbuffer)
     imgui.PushStyleColor(imgui.Col.Button, imgui.ImVec4(0.00, 0.35, 0.65, 1))
     imgui.PushStyleColor(imgui.Col.ButtonHovered, imgui.ImVec4(0.00, 0.40, 0.65, 1))
     imgui.PushStyleColor(imgui.Col.ButtonActive, imgui.ImVec4(0.00, 0.45, 0.65, 1))
-    if imgui.Button(u8'ВКонтакте', imgui.ImVec2(100, 30)) then setClipboardText(textbuffer) end
+    if imgui.Button(u8'Г‚ГЉГ®Г­ГІГ ГЄГІГҐ', imgui.ImVec2(100, 30)) then setClipboardText(textbuffer) end
     imgui.PopStyleColor(3)
-    imgui.Hint(textbuffer, 0, u8(getClipboardText() == textbuffer and 'Скопировано!' or 'Кликните что-бы скопировать'))
+    imgui.Hint(textbuffer, 0, u8(getClipboardText() == textbuffer and 'Г‘ГЄГ®ГЇГЁГ°Г®ГўГ Г­Г®!' or 'ГЉГ«ГЁГЄГ­ГЁГІГҐ Г·ГІГ®-ГЎГ» Г±ГЄГ®ГЇГЁГ°Г®ГўГ ГІГј'))
 end
 
 function imgui.ButtonBlastHK(textbuffer)
@@ -1457,7 +1457,7 @@ function imgui.ButtonBlastHK(textbuffer)
     imgui.PushStyleColor(imgui.Col.ButtonActive, imgui.ImVec4(0.11, 0.14, 0.18, 1))
     if imgui.Button('BlastHack', imgui.ImVec2(100, 30)) then setClipboardText(textbuffer) end
     imgui.PopStyleColor(3)
-    imgui.Hint(textbuffer, 0, u8(getClipboardText() == textbuffer and 'Скопировано!' or 'Кликните что-бы скопировать'))
+    imgui.Hint(textbuffer, 0, u8(getClipboardText() == textbuffer and 'Г‘ГЄГ®ГЇГЁГ°Г®ГўГ Г­Г®!' or 'ГЉГ«ГЁГЄГ­ГЁГІГҐ Г·ГІГ®-ГЎГ» Г±ГЄГ®ГЇГЁГ°Г®ГўГ ГІГј'))
 end
 
 function imgui.ButtonTelegram(textbuffer)
@@ -1466,7 +1466,7 @@ function imgui.ButtonTelegram(textbuffer)
     imgui.PushStyleColor(imgui.Col.ButtonActive, imgui.ImVec4(0, 0.45, 0.8, 1))
     if imgui.Button('Telegram', imgui.ImVec2(100, 30)) then setClipboardText(textbuffer) end
     imgui.PopStyleColor(3)
-    imgui.Hint(textbuffer, 0, u8(getClipboardText() == textbuffer and 'Скопировано!' or 'Кликните что-бы скопировать'))
+    imgui.Hint(textbuffer, 0, u8(getClipboardText() == textbuffer and 'Г‘ГЄГ®ГЇГЁГ°Г®ГўГ Г­Г®!' or 'ГЉГ«ГЁГЄГ­ГЁГІГҐ Г·ГІГ®-ГЎГ» Г±ГЄГ®ГЇГЁГ°Г®ГўГ ГІГј'))
 end
 local money=getPlayerMoney(PLAYER_HANDLE)
 local summa = 0
@@ -1624,9 +1624,9 @@ function fastskup()
         proc=0
 		superproc()
         if proc >1.000002 then
-            SCM('Распределите проценты так, чтобы они не превосходили 1. Сейчас: {FF0000}'..proc)
+            SCM('ГђГ Г±ГЇГ°ГҐГ¤ГҐГ«ГЁГІГҐ ГЇГ°Г®Г¶ГҐГ­ГІГ» ГІГ ГЄ, Г·ГІГ®ГЎГ» Г®Г­ГЁ Г­ГҐ ГЇГ°ГҐГўГ®Г±ГµГ®Г¤ГЁГ«ГЁ 1. Г‘ГҐГ©Г·Г Г±: {FF0000}'..proc)
         elseif (money<0) then
-			SCM('Не хватает денег на скуп, убери несколько товаров.')
+			SCM('ГЌГҐ ГµГўГ ГІГ ГҐГІ Г¤ГҐГ­ГҐГЈ Г­Г  Г±ГЄГіГЇ, ГіГЎГҐГ°ГЁ Г­ГҐГ±ГЄГ®Г«ГјГЄГ® ГІГ®ГўГ Г°Г®Гў.')
 		elseif sampIsDialogActive() then
             if sampGetCurrentDialogId() == 3040 then 
                 if famtalon.v then
@@ -1752,15 +1752,15 @@ function fastskup()
                 end
                 wait(500)
                 if summa == 0 then
-                    SCM("Странно, похоже вы не выбрали товар или же просто не указали цены и количество")
+                    SCM("Г‘ГІГ°Г Г­Г­Г®, ГЇГ®ГµГ®Г¦ГҐ ГўГ» Г­ГҐ ГўГ»ГЎГ°Г Г«ГЁ ГІГ®ГўГ Г° ГЁГ«ГЁ Г¦ГҐ ГЇГ°Г®Г±ГІГ® Г­ГҐ ГіГЄГ Г§Г Г«ГЁ Г¶ГҐГ­Г» ГЁ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ®")
                 else
-                    SCM("Все товары были выставленны на скуп. На сумму "..lc.. ""..summa)
+                    SCM("Г‚Г±ГҐ ГІГ®ГўГ Г°Г» ГЎГ»Г«ГЁ ГўГ»Г±ГІГ ГўГ«ГҐГ­Г­Г» Г­Г  Г±ГЄГіГЇ. ГЌГ  Г±ГіГ¬Г¬Гі "..lc.. ""..summa)
                 end
             else
-                SCM("Нажми на кнопочку ALT")
+                SCM("ГЌГ Г¦Г¬ГЁ Г­Г  ГЄГ­Г®ГЇГ®Г·ГЄГі ALT")
             end
         else
-            SCM("Нажми на кнопочку ALT")
+            SCM("ГЌГ Г¦Г¬ГЁ Г­Г  ГЄГ­Г®ГЇГ®Г·ГЄГі ALT")
         end
     end)
 end
@@ -2081,15 +2081,15 @@ function autoupdatet(json_url, prefix, url)
                 lua_thread.create(function(prefix)
                   local dlstatus = require('moonloader').download_status
                   local color = -1
-                  SCM('Обнаружено обновление. Пытаюсь обновиться c '..thisScript().version..' на '..updateversion)
+                  SCM('ГЋГЎГ­Г Г°ГіГ¦ГҐГ­Г® Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ. ГЏГ»ГІГ ГѕГ±Гј Г®ГЎГ­Г®ГўГЁГІГјГ±Гї c '..thisScript().version..' Г­Г  '..updateversion)
                   wait(250)
                   downloadUrlToFile(updatelink, thisScript().path,
                     function(id3, status1, p13, p23)
                       if status1 == dlstatus.STATUS_DOWNLOADINGDATA then
-                        SCM(string.format('Загружено %d из %d.', p13, p23))
+                        SCM(string.format('Г‡Г ГЈГ°ГіГ¦ГҐГ­Г® %d ГЁГ§ %d.', p13, p23))
                       elseif status1 == dlstatus.STATUS_ENDDOWNLOADDATA then
-                        SCM('Загрузка обновления завершена.')
-                        SCM('Обновление завершено!')
+                        SCM('Г‡Г ГЈГ°ГіГ§ГЄГ  Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГї Г§Г ГўГҐГ°ГёГҐГ­Г .')
+                        SCM('ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ Г§Г ГўГҐГ°ГёГҐГ­Г®!')
                         mainIni.main.clogshow = true
                         saveIniFile()
                         goupdatestatus = true
@@ -2097,7 +2097,7 @@ function autoupdatet(json_url, prefix, url)
                       end
                       if status1 == dlstatus.STATUSEX_ENDDOWNLOAD then
                         if goupdatestatus == nil then
-                          SCM('Обновление прошло неудачно. Запускаю устаревшую версию..')
+                          SCM('ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ ГЇГ°Г®ГёГ«Г® Г­ГҐГіГ¤Г Г·Г­Г®. Г‡Г ГЇГіГ±ГЄГ Гѕ ГіГ±ГІГ Г°ГҐГўГёГіГѕ ГўГҐГ°Г±ГЁГѕ..')
                           update = false
                         end
                       end
@@ -2107,11 +2107,11 @@ function autoupdatet(json_url, prefix, url)
                 )
               else
                 update = false
-                SCM('Обновление не требуется.')
+                SCM('ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ Г­ГҐ ГІГ°ГҐГЎГіГҐГІГ±Гї.')
               end
             end
           else
-            SCM('Не могу проверить обновление. Смиритесь или проверьте самостоятельно на '..url)
+            SCM('ГЌГҐ Г¬Г®ГЈГі ГЇГ°Г®ГўГҐГ°ГЁГІГј Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ. Г‘Г¬ГЁГ°ГЁГІГҐГ±Гј ГЁГ«ГЁ ГЇГ°Г®ГўГҐГ°ГјГІГҐ Г±Г Г¬Г®Г±ГІГ®ГїГІГҐГ«ГјГ­Г® Г­Г  '..url)
             update = false
           end
         end
@@ -2137,42 +2137,42 @@ function onScriptTerminate(script, quitGame)
         local moon = getMoonloaderVersion()
         local date = os.date('%d.%m.%Y %H:%M:%S', os.time())
         local libs = {
-            (imgui and lc..'Прсутсвует ('..imgui._VERSION..')' or '{FF0000}Отсутсвует'), -- Imgui
-            (bFa and lc..'Прсутсвует' or '{FF0000}Отсутсвует'), -- FontAwesome
-            (doesFileExist(getWorkingDirectory()..'\\resource\\HarlyCloud Script\\fa-solid-900.ttf') and lc..'Прсутсвует' or '{FF0000}Отсутсвует'), -- Font
-            (sampev and lc..'Прсутсвует' or '{FF0000}Отсутсвует') -- SAMP.lua (Events)
+            (imgui and lc..'ГЏГ°Г±ГіГІГ±ГўГіГҐГІ ('..imgui._VERSION..')' or '{FF0000}ГЋГІГ±ГіГІГ±ГўГіГҐГІ'), -- Imgui
+            (bFa and lc..'ГЏГ°Г±ГіГІГ±ГўГіГҐГІ' or '{FF0000}ГЋГІГ±ГіГІГ±ГўГіГҐГІ'), -- FontAwesome
+            (doesFileExist(getWorkingDirectory()..'\\resource\\HarlyCloud Script\\fa-solid-900.ttf') and lc..'ГЏГ°Г±ГіГІГ±ГўГіГҐГІ' or '{FF0000}ГЋГІГ±ГіГІГ±ГўГіГҐГІ'), -- Font
+            (sampev and lc..'ГЏГ°Г±ГіГІГ±ГўГіГҐГІ' or '{FF0000}ГЋГІГ±ГіГІГ±ГўГіГҐГІ') -- SAMP.lua (Events)
         }
-        local log = #errorLog > 0 and table.concat(errorLog, '\n') or 'Сведения отсутвуют'
+        local log = #errorLog > 0 and table.concat(errorLog, '\n') or 'Г‘ГўГҐГ¤ГҐГ­ГЁГї Г®ГІГ±ГіГІГўГіГѕГІ'
         local rall = doesFileExist(getWorkingDirectory()..'\\reload_all.lua')
 
-sampShowDialog(0, mc..'Auto Buy '..ec..'| Ошибка', 
+sampShowDialog(0, mc..'Auto Buy '..ec..'| ГЋГёГЁГЎГЄГ ', 
 string.format(
-[[{E0BF23}Внимание! Скрипт внезапно завершил свою работу.
+[[{E0BF23}Г‚Г­ГЁГ¬Г Г­ГЁГҐ! Г‘ГЄГ°ГЁГЇГІ ГўГ­ГҐГ§Г ГЇГ­Г® Г§Г ГўГҐГ°ГёГЁГ« Г±ГўГ®Гѕ Г°Г ГЎГ®ГІГі.
 
-{ACFF00}Сведения о системе:
-{FFFFFF} - Время: {00C235}%s
-{FFFFFF} - Версия скрипта: {00C235}%s
-{FFFFFF} - Версия MoonLoader: {00C235}%s
+{ACFF00}Г‘ГўГҐГ¤ГҐГ­ГЁГї Г® Г±ГЁГ±ГІГҐГ¬ГҐ:
+{FFFFFF} - Г‚Г°ГҐГ¬Гї: {00C235}%s
+{FFFFFF} - Г‚ГҐГ°Г±ГЁГї Г±ГЄГ°ГЁГЇГІГ : {00C235}%s
+{FFFFFF} - Г‚ГҐГ°Г±ГЁГї MoonLoader: {00C235}%s
 
-{ACFF00}Наличие наиболее важных библиотек:
+{ACFF00}ГЌГ Г«ГЁГ·ГЁГҐ Г­Г ГЁГЎГ®Г«ГҐГҐ ГўГ Г¦Г­Г»Гµ ГЎГЁГЎГ«ГЁГ®ГІГҐГЄ:
 {FFFFFF} - Dear Imgui: %s
 {FFFFFF} - FontAwesome: %s
 {FFFFFF} - Font (fa-solid-900): %s
 {FFFFFF} - SAMP.lua: %s
 
-{ACFF00}Лог скрипта:
+{ACFF00}Г‹Г®ГЈ Г±ГЄГ°ГЁГЇГІГ :
 {BE3D3D}%s
 
-{ACFF00}Информация:{E0BF23}
- - Если данная ошибка возникла при запуске игры, то скорее всего проблема в отсутвии библиотек для работы скрипта
-   или конфликтование со сторонними плагинами/скриптами, либо же со всей сборкой в целом
+{ACFF00}Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї:{E0BF23}
+ - Г…Г±Г«ГЁ Г¤Г Г­Г­Г Гї Г®ГёГЁГЎГЄГ  ГўГ®Г§Г­ГЁГЄГ«Г  ГЇГ°ГЁ Г§Г ГЇГіГ±ГЄГҐ ГЁГЈГ°Г», ГІГ® Г±ГЄГ®Г°ГҐГҐ ГўГ±ГҐГЈГ® ГЇГ°Г®ГЎГ«ГҐГ¬Г  Гў Г®ГІГ±ГіГІГўГЁГЁ ГЎГЁГЎГ«ГЁГ®ГІГҐГЄ Г¤Г«Гї Г°Г ГЎГ®ГІГ» Г±ГЄГ°ГЁГЇГІГ 
+   ГЁГ«ГЁ ГЄГ®Г­ГґГ«ГЁГЄГІГ®ГўГ Г­ГЁГҐ Г±Г® Г±ГІГ®Г°Г®Г­Г­ГЁГ¬ГЁ ГЇГ«Г ГЈГЁГ­Г Г¬ГЁ/Г±ГЄГ°ГЁГЇГІГ Г¬ГЁ, Г«ГЁГЎГ® Г¦ГҐ Г±Г® ГўГ±ГҐГ© Г±ГЎГ®Г°ГЄГ®Г© Гў Г¶ГҐГ«Г®Г¬
  
- - Если ошибка возникла при использовании скрипта, настоятельно рекомендуется сообщить о ней разработчику, 
-   приложив скриншот этого окна, а так же, по взомжности файла moonloader.log
-   Полный путь: {FFFF00}%s{E0BF23}
+ - Г…Г±Г«ГЁ Г®ГёГЁГЎГЄГ  ГўГ®Г§Г­ГЁГЄГ«Г  ГЇГ°ГЁ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГЁ Г±ГЄГ°ГЁГЇГІГ , Г­Г Г±ГІГ®ГїГІГҐГ«ГјГ­Г® Г°ГҐГЄГ®Г¬ГҐГ­Г¤ГіГҐГІГ±Гї Г±Г®Г®ГЎГ№ГЁГІГј Г® Г­ГҐГ© Г°Г Г§Г°Г ГЎГ®ГІГ·ГЁГЄГі, 
+   ГЇГ°ГЁГ«Г®Г¦ГЁГў Г±ГЄГ°ГЁГ­ГёГ®ГІ ГЅГІГ®ГЈГ® Г®ГЄГ­Г , Г  ГІГ ГЄ Г¦ГҐ, ГЇГ® ГўГ§Г®Г¬Г¦Г­Г®Г±ГІГЁ ГґГ Г©Г«Г  moonloader.log
+   ГЏГ®Г«Г­Г»Г© ГЇГіГІГј: {FFFF00}%s{E0BF23}
  
-{ACFF00}Свзязь с разрабочиком:
-{FFFFFF}ВКонтакте: {00C235}%s
+{ACFF00}Г‘ГўГ§ГїГ§Гј Г± Г°Г Г§Г°Г ГЎГ®Г·ГЁГЄГ®Г¬:
+{FFFFFF}Г‚ГЉГ®Г­ГІГ ГЄГІГҐ: {00C235}%s
 {FFFFFF}Discord: {00C235}%s
 {FFFFFF}Telegram: {00C235}%s
 
@@ -2182,8 +2182,8 @@ libs[1], libs[2], libs[3], libs[4],
 log,
 getGameDirectory()..'\\moonloader\\moonloader.log',
 devLink['VK'], devLink['DS'], devLink['TG'],
-rall and 'Перезапустить все скрипты: {E0BF23}CTRL + R' or 'Перезайдите в игру для повторного запуска'
-), mc..'Понятно', '', 0)
+rall and 'ГЏГҐГ°ГҐГ§Г ГЇГіГ±ГІГЁГІГј ГўГ±ГҐ Г±ГЄГ°ГЁГЇГІГ»: {E0BF23}CTRL + R' or 'ГЏГҐГ°ГҐГ§Г Г©Г¤ГЁГІГҐ Гў ГЁГЈГ°Гі Г¤Г«Гї ГЇГ®ГўГІГ®Г°Г­Г®ГЈГ® Г§Г ГЇГіГ±ГЄГ '
+), mc..'ГЏГ®Г­ГїГІГ­Г®', '', 0)
     end
 end
 
@@ -2257,13 +2257,13 @@ function apply_custom_style()
         ['date'] = '9.1.2021',
         ['ver'] = '1.1.0',
         ['info'] = {
-            'Полность доработанна работа с процентами',
-            'Добавлен ChangeLog (Данное окно)'
+            'ГЏГ®Г«Г­Г®Г±ГІГј Г¤Г®Г°Г ГЎГ®ГІГ Г­Г­Г  Г°Г ГЎГ®ГІГ  Г± ГЇГ°Г®Г¶ГҐГ­ГІГ Г¬ГЁ',
+            'Г„Г®ГЎГ ГўГ«ГҐГ­ ChangeLog (Г„Г Г­Г­Г®ГҐ Г®ГЄГ­Г®)'
         },
         ['patches'] = {
             ['show'] = false,
             ['info'] = {
-                'Добавлена проверка процентов',
+                'Г„Г®ГЎГ ГўГ«ГҐГ­Г  ГЇГ°Г®ГўГҐГ°ГЄГ  ГЇГ°Г®Г¶ГҐГ­ГІГ®Гў',
             }
         }
     }
